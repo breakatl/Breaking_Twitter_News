@@ -1,0 +1,45 @@
+<header>
+  <div id= "header">
+ Atlanta Breaking News
+  </div>
+</header>
+
+<style>
+  div.tweets
+    {width:25%; float:left}
+</style>
+<h1 style="text-align: left">Live Twitter Feed</h1>
+<div class="tweets" id= "tweets">
+
+    <% @tweets.each do |tweet| %>
+
+        <%= link_to(image_tag(tweet.user.profile_image_url),"http://twitter.com/#{tweet.user.screen_name}") %>
+        <%=tweet.user.name%>
+        <%=tweet.text%> <br>
+    <%end%>
+</div>
+
+<style>
+    div.feed
+    {width:25%; float:left}
+</style>
+
+<h1 style="text-align: left">11Alive RSS Feed</h1>
+<div class=feed id="feed">
+  <% @feed.entries.each do |entry| %>
+      <%= entry.title %>  <br>
+  <% end %>
+</div>
+
+<style>
+  div.youtube_videos
+  {width:50%; float:left}
+</style>
+<h1 style="text-align: left">Atlanta News Videos</h1>
+<div class=youtube_videos id=youtube_videos>
+      <%@youtube_videos.each do |video|%>
+        <%= video.embed_html5.html_safe%>
+      <%end%>
+</div>
+
+

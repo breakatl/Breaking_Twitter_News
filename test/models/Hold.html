@@ -1,0 +1,21 @@
+<style>
+    div.story
+    {width:25%; float:left}
+</style>
+<h1 style="text-align: left"> Breaking News Stories</h1>
+<div class=story id=story>
+    <%=@story = Nokogiri::HTML(resp.body) %>
+    <%puts @story.at('meta[property="og:title"]')['content']%>
+    <%end%>
+</div>
+
+<style>
+    div.story
+    {width:25%; float:left}
+</style>
+<h1 style="text-align: left">Breaking News Stories</h1>
+<div class=story id=story>
+    <%resp= HTTParty.get('http://www.11alive.com/news/article/315687/3/Roswell-man-named-as-one-of-11-best-Santas-in-US')%>
+    <%doc = Nokogiri::HTML(resp.body)%>
+    <%=puts doc.at('meta[property="og:image"]')['content']%> <br>
+</div>
